@@ -24,6 +24,14 @@ const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/testquire";
 mongoose.Promise = Promise;
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
+if(['production'].includes(process.env.NODE_ENV))
+{
+  app.use(express.static('../client/build'));
+  const path = require('path');
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve('client', 'build', 'index.html'));
+  });
+}
 
 app.use('/api', projectRouter);
 app.use('/api', suiteRouter);

@@ -4,7 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently --kill-others-on-fail \"cd server && npm start\" \"cd client && yarn run start\""
+    "start": "if-env NODE_ENV=production && yarn run start:prod || yarn run start:dev",
+    "start:prod": "cd server && npm start",
+    "start:dev": "concurrently --kill-others-on-fail \"cd server && npm start\" \"yarn run client\"",
+    "client": "cd client && yarn run start",
+    "install": "cd client && yarn install",
+    "build": "cd client && yarn run build",
+    "heroku-postbuild": "yarn run build"
   },
   "keywords": [],
   "author": "",
