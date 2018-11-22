@@ -2,20 +2,26 @@
   "name": "test-quire",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "start": "if-env NODE_ENV=production && yarn run start:prod || yarn run start:dev",
-    "start:prod": "cd server && npm start",
-    "start:dev": "concurrently --kill-others-on-fail \"cd server && npm start\" \"yarn run client\"",
+    "start:prod": "node ./bin/www",
+    "start:dev": "concurrently --kill-others-on-fail \"node ./bin/www\" \"yarn run client\"",
     "client": "cd client && yarn run start",
     "install": "cd client && yarn install",
     "build": "cd client && yarn run build",
-    "heroku-postbuild": "cd client && npm install && npm run build"
+    "heroku-postbuild": "yarn run build"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.18.3",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "^4.16.3",
+    "mongoose": "^5.3.13",
+    "morgan": "~1.9.0",
     "concurrently": "^4.0.1",
     "if-env": "^1.0.4",
     "yarn": "^1.12.3"
