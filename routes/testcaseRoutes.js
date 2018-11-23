@@ -14,7 +14,7 @@ const TestCase = require('../models/TestCase');
   // create test case
   router.post('/testcase', (req, res, next) => {
     TestCase.create(req.body)
-      .then((testCase) => res.json(testCase))
+      .then((testCase) => res.json({message: "Test Case created successfully", testCase}))
       .catch((err) => next(err));
   });
 

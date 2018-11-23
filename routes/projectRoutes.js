@@ -4,9 +4,8 @@ const Project = require('../models/Project');
 
 router.post('/project', (req, res, next) => {
   const project = new Project(req.body);
-  console.log(project)
   project.save()
-    .then(() => res.json(project))
+    .then(() => res.json({message: "Project created successfully", project}))
     .catch((err) => next(err));
 });
 
@@ -29,7 +28,7 @@ router.get('/project/:pId', (req, res, next) => {
 router.delete('/project/:pId', function (req, res, next) {
   Project.findOneAndRemove({ _id: req.params.pId })
     .exec()
-    .then(() => res.json("Project deleted successfully"))
+    .then(() => res.json({message: "Project deleted successfully"}))
     .catch((err) => next(err));
 });
 
@@ -38,7 +37,7 @@ router.put('/project/:pId', (req, res, next) => {
     { _id: req.params.pId },
     { $set: { project_name: req.body.project_name} }, { new: true })
     .exec()
-    .then((project) => res.json(project))
+    .then((project) => res.json({message: "Project updated", project}))
     .catch((err) => next(err));
 });
 

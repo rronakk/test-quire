@@ -5,7 +5,7 @@ const Suite = require('../models/Suite');
 // CREATE
 router.post('/suite', (req, res, next) => {
   Suite.create(req.body)
-    .then((suite) => res.json(suite))
+    .then((suite) => res.json({message: "Suite created successfully", suite}))
     .catch((err) => next(err));
 });
 
@@ -22,7 +22,7 @@ router.get('/project/:pId/suite', (req, res, next) => {
 router.delete('/suite/:id', (req, res, next) => {
   Suite.findOneAndRemove({ _id: req.params.id })
     .exec()
-    .then(() => res.json())
+    .then(() => res.json({message: "Suite deleted successfully"}))
     .catch((err) => next(err));
 });
 
@@ -34,7 +34,7 @@ router.put("/suite/:sId", (req, res, next) => {
     { new: true }
   )
     .exec()
-    .then(() => res.json())
+    .then((suite) => res.json({message: "Suite updated successfully", suite}))
     .catch(err => next(err));
 });
 
