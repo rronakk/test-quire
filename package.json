@@ -15,7 +15,7 @@
     "cy:run": "cypress run",
     "cy:run:record": "cypress run --record",
     "test": "run-p --race start cy:run",
-    "test:ci": "run-p --race cy:run:record"
+    "test:ci": "run-p --race cy:run"
   },
   "keywords": [],
   "author": "",
