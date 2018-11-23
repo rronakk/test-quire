@@ -22,7 +22,7 @@ jobs:
         - ~/.npm
         - ~/.cache
         - node_modules
-    - run: npm run start:dev
+#    - run: npm run start:dev
     - run: npm run test:ci
 
 workflows:
