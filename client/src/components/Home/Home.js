@@ -15,7 +15,7 @@ export default function Home() {
 
       <Box align="center">
         <br/>
-        <Button label="Enter"><a href="/project"></a></Button>
+        <Button><a href="/project">Enter</a></Button>
       </Box>
     </div>
   );
