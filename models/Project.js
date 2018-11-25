@@ -9,7 +9,7 @@ const ProjectSchema = new Schema({
   suits: [
     {
       type: Schema.Types.ObjectId,
-      ref: "suits"
+      ref: "suites"
     }
   ]
 });
