@@ -17,6 +17,4 @@ module.exports = (app) => {
       .then((testCase) => res.json({message: "Test Case created successfully", testCase}))
       .catch((err) => next(err));
   });
-
-//TODO : Add Update and delete of test cases
 };
