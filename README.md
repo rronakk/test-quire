@@ -5,7 +5,7 @@ UI is currently WIP.
 
 Basic API is implemented.
 
-URL : 
+URL : https://test-quire.herokuapp.com/
 
 ### Stack & technologies used:
 * [Mongo](https://www.mongodb.com/) 
